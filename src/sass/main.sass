@@ -184,17 +184,14 @@ body
             margin-right: 0
 
 .products
-    min-height: 900px
+    max-height: 900px
+    padding-bottom: 50px
     background-color: $color-oliva
     position: relative
     z-index: 1
     &__descr-box
         padding-top: 46px
         margin-bottom: 64px
-    &__info-block
-        margin-bottom: 50px
-    &__button
-        margin: 0 auto
     &__bg
         position: absolute
         z-index: -1
@@ -225,7 +222,7 @@ body
         display: flex
         flex-direction: column
         align-items: center
-        margin-right: 20px
+        margin-right: 30px
         &:last-child
             margin-right: 0
     &__img
@@ -245,13 +242,16 @@ body
         max-width: 320px
 
 .delivery
-    min-height: 860px
+    max-height: 960px
+    padding-bottom: 50px
     background: url("/img/delivery/background-candy.jpg") center center/cover no-repeat
     &__descr-box
         padding-top: 46px
-        margin-bottom: 64px
+        margin-bottom: 34px
     &__info-block
         margin-bottom: 50px
+    &__button
+        margin: 0 auto
     &__more-info
         text-align: right
         font-size: 16px

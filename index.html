@@ -8,24 +8,23 @@
 	</head>
 
 	<body>
-		<nav class="nav-menu">
+		<header class="nav-menu">
 			<div class="container">
 				<div class="nav-menu__icon">
-					<a href="#">
+					<a id="logo" href="#">
 						<img src="/icons/LeDéle.png" alt="LeDele" />
 					</a>
 				</div>
-				<div class="nav-menu__nav-box nav-box">
+				<nav class="nav-menu__nav-box nav-box">
 					<div class="nav-box__list">
-						<li class="nav-box__descr"><a href="#">About us</a></li>
-						<li class="nav-box__descr"><a href="#">Reviews</a></li>
-						<li class="nav-box__descr"><a href="#">Gallery</a></li>
-						<li class="nav-box__descr"><a href="#">Visit us</a></li>
+						<li class="nav-box__descr" about><a href="#about-us">About us</a></li>
+						<li class="nav-box__descr" gallery><a href="#gallery">Gallery</a></li>
+						<li class="nav-box__descr" footer><a href="#footer">Visit us</a></li>
 					</div>
 					<button class="nav-box__button button">Contact us</button>
-				</div>
+				</nav>
 			</div>
-		</nav>
+		</header>
 
 		<section class="main-section">
 			<div class="container">
@@ -81,21 +80,20 @@
 				</div>
 			</div>
 		</section>
-		<section class="products">
+		<section id="about-us" class="products">
 			<div class="container">
 				<div class="products__descr-box descr-box">
-					<h2 class="descr-box__title">Our Products</h2>
+					<h2 class="descr-box__title">Products</h2>
 					<div class="descr-box__text">
 						My sweets are soul and experience. The joy and magic of every
-						dessert. Open the cards with photos and descriptions and enjoy
-						moments of happiness.
+						dessert. Order a sweets and enjoy moments of happiness.
 					</div>
 				</div>
 				<div class="products__info-block info-block">
 					<div class="info-block__parent">
 						<img
 							src="/img/our-products/vanilla-cloud.png"
-							alt="chcolate cake"
+							alt="chocolate cake"
 							class="info-block__img"
 						/>
 						<div class="info-block__descr">
@@ -152,7 +150,6 @@
 						</div>
 					</div>
 				</div>
-				<button class="products__button button button_big">Order Now</button>
 				<div class="products__bg">
 					<img src="/img/our-products/bg-second section.png" alt="" />
 				</div>
@@ -226,9 +223,10 @@
 						</div>
 					</div>
 				</div>
+				<button class="delivery__button button button_big">Order Now</button>
 			</div>
 		</section>
-		<section class="reviews">
+		<section id="gallery" class="reviews">
 			<div class="container">
 				<h2 class="reviews__title">
 					Big or small, don't forget to celebrate your next holiday
@@ -339,15 +337,13 @@
 				</div>
 			</div>
 		</section>
-		<footer class="footer">
+		<footer id="footer" class="footer">
 			<div class="container">
 				<div class="footer__content">
 					<div class="footer__nav-menu">
 						<div class="footer__list">
-							<li class="footer__nav"><a href="#">About us</a></li>
-							<li class="footer__nav"><a href="#">Reviews</a></li>
-							<li class="footer__nav"><a href="#">Gallery</a></li>
-							<li class="footer__nav"><a href="#">Visit us</a></li>
+							<li class="footer__nav"><a href="#about-us">About us</a></li>
+							<li class="footer__nav"><a href="#gallery">Gallery</a></li>
 						</div>
 						<div class="footer__fedback">
 							Have feedback about our products or services? Please stay with me
