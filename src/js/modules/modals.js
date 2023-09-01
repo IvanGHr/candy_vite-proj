@@ -1,12 +1,14 @@
 const contactUs = () => {
+	const scroll = removeJumping();
+	let isModal = false;
+
 	function bindModal(triggerSelector, modalSelector, closeSelector) {
 		const trigger = document.querySelectorAll(triggerSelector),
-			modal = document.querySelector(modalSelector),
-			closeModal = document.querySelector(closeSelector),
-			scroll = removeJumping();
+			  modal = document.querySelector(modalSelector),
+			  closeModal = document.querySelectorAll(closeSelector);
 
 		trigger.forEach(item => {
-			item.addEventListener('click', e => {
+			item.addEventListener('click', (e) => {
 				if (e.target) {
 					e.preventDefault()
 				}
@@ -15,30 +17,41 @@ const contactUs = () => {
                 modal.classList.remove('cancel-animate');
 				document.body.style.overflow = 'hidden';
                 document.body.style.marginRight = `${scroll}px`;
+
+				isModal = true;
+			});
+		});
+
+		closeModal.forEach(item => {
+			item.addEventListener('click', () => {
+				modal.classList.add('cancel-animate');
+				modal.classList.remove('animate-modal');
+				document.body.style.overflow = '';
+				document.body.style.marginRight = `${0}px`;
+
+				isModal = false;
 			})
 		})
 
-		closeModal.addEventListener('click', () => {
-			modal.classList.add('cancel-animate');
-			modal.classList.remove('animate-modal');
-			document.body.style.overflow = '';
-            document.body.style.marginRight = `${0}px`;
-		})
-
-		modal.addEventListener('click', e => {
+		modal.addEventListener('click', (e) => {
 			if (e.target === modal) {
 				modal.classList.add('cancel-animate');
 				modal.classList.remove('animate-modal');
 				document.body.style.overflow = '';
                 document.body.style.marginRight = `${0}px`;
+
+				isModal = false;
 			}
-		})
+		});
 	};
 
     function showModalByTime(selector, animateClass, time) {
 		setTimeout(function () {
-			document.querySelector(selector).classList.add(animateClass)
-			document.body.style.overflow = 'hidden'
+			if (isModal === false) {
+				document.querySelector(selector).classList.add(animateClass)
+				document.body.style.marginRight = `${scroll}px`
+				document.body.style.overflow = 'hidden'
+			}
 		}, time)
 	};
 
@@ -59,7 +72,7 @@ const contactUs = () => {
 
 	bindModal('.modal-open', '#popup__callback', '.popup__close')
 	bindModal('.delivery__more-info', '#popup__learn-more', '.popup__close')
-	showModalByTime('#popup__callback', 'animate-modal', 60000);
+	showModalByTime('#popup__callback', 'animate-modal', 6000);
 };
 
 export default contactUs;

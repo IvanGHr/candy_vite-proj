@@ -245,18 +245,21 @@ body
     max-height: 960px
     padding-bottom: 50px
     background: url("/img/delivery/background-candy.jpg") center center/cover no-repeat
+    .container
+        position: relative
     &__descr-box
         padding-top: 46px
-        margin-bottom: 34px
+        margin-bottom: 64px
     &__info-block
         margin-bottom: 50px
     &__button
         margin: 0 auto
     &__more-info
-        text-align: right
+        position: absolute
+        right: 0
+        top: 245px
         font-size: 16px
         font-weight: 500
-        margin-bottom: 24px
         &:hover
             text-decoration: underline
             cursor: pointer
@@ -464,10 +467,10 @@ body
     &__content
         position: fixed
         text-align: center
-        max-width: 35rem
+        min-width: 26rem
         left: 50%
         top: 15%
-        transform: translateX(-50%) !important
+        transform: translateX(-50%)
         padding: 3rem
         background: $color-pink
         z-index: 40
@@ -477,7 +480,6 @@ body
         overflow-y: auto
         overflow-x: hidden
         position: relative
-        padding-right: 20px
         &::-webkit-scrollbar
             width: 12px
         &::-webkit-scrollbar-thumb
@@ -496,8 +498,11 @@ body
         color: white
         border: none
         background: transparent
+        cursor: pointer
+    &__form
+        position: relative
     &__title
-        font-size: 26px
+        font-size: 22px
         font-weight: 500
         margin-bottom: 20px
         &_smaller
@@ -538,7 +543,7 @@ body
     &__comment
         min-height: 100px
         max-height: 120px
-        margin-bottom: 20px
+        margin-bottom: 44px
         vertical-align: top
         padding: 14px
     &__send
@@ -576,4 +581,19 @@ body
 .cancel-animate
     opacity: 0
     visibility: hidden
+
+.status-post
+    width: 100%
+    position: absolute
+    bottom: 48px
+    left: 50%
+    transform: translateX(-50%)
+    color: $color-black
+    display: inline-block
+    padding: 2px 14px
+    font-size: 14px
+    font-weight: 600
+    border-radius: 25px
+    
+
 

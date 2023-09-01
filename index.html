@@ -58,7 +58,7 @@
 						<div class="input-box__descr">
 							Write your phone number and we will contact you
 						</div>
-						<input class="input-box__input" type="text" />
+						<input class="input-box__input" type="text" name="phone"/>
 						<div class="input-box__icons icons">
 							<a href="#">
 								<img class="icons__icon" src="/icons/instagram.png" alt="" />
@@ -363,10 +363,7 @@
 							<div class="input-box__descr">
 								Write your phone number and we will contact you
 							</div>
-							<input
-								class="input-box__input input-box__input_small"
-								type="text"
-							/>
+							<input class="input-box__input input-box__input_small" type="text" name="phone"/>
 						</div>
 					</div>
 				</div>
@@ -379,13 +376,15 @@
 		<div id="popup__callback" class="popup">
 			<div class="popup__body">
 				<div class="popup__content">
-					<button class="popup__close"><strong>&times;</strong></button>
-					<h4 class="popup__title">Fill out the form and I`ll contact you</h4>
-					<input id="popup__email" class="popup__input popup__email" type="text" placeholder="email">
-					<input id="popup__phone-number" class="popup__input popup__phone-number" type="text" placeholder="Phone number">
-					<div class="popup__descr">You can write a comment</div>
-					<textarea rows="2" cols="25" style="resize: vertical;" name="comment" id="popup__comment" class="popup__input popup__comment" type="text" placeholder="comment..."></textarea>
-					<button id="popup__send" class="button popup__send">Send</button>
+					<button class="popup__close"><strong class="x">&times;</strong></button>
+					<form class="popup__form" action="#">
+						<h4 class="popup__title">Fill out the form and I contact you</h4>
+						<input class="popup__input popup__email" placeholder="email" name="e-mail" type="text">
+						<input class="popup__input popup__phone-number" placeholder="Phone number" name="phone" type="text">
+						<div class="popup__descr">You can write a comment</div>
+						<textarea rows="2" cols="25" style="resize: none" name="comment" class="popup__input popup__comment" type="text" placeholder="comment..."></textarea>
+						<button id="popup__send" class="button popup__send" name="submit" type="submit">Send</button>
+					</form>
 					<div class="popup__bg">
 						<img src="/img/bg-footer.png" alt="" />
 					</div>
@@ -395,56 +394,56 @@
 		<div id="popup__learn-more" class="popup popup-text">
 			<div class="popup__body">
 				<div class="popup__content">
-					<div class="popup__scroll-box">
-						<button class="popup__close">
-							<strong>&times;</strong>
-						</button>
-						<h5 class="popup__title popup__title_smaller">
-							Packaging and Postal Delivery
-						</h5>
-						<div class="popup__text">
-							I meticulously package each treat to ensure its freshness and
-							flawless condition during transit. No matter where you are,
-							indulge in my delightful desserts hassle-free. I offer convenient
-							postal delivery options, allowing you to receive exquisite
-							desserts right at your doorstep.
+					<button class="popup__close"><strong class="x">&times;</strong></button>
+					<form class="popup__form" action="#">
+						<div class="popup__scroll-box">
+							<h5 class="popup__title popup__title_smaller">
+								Packaging and Postal Delivery
+							</h5>
+							<div class="popup__text">
+								I meticulously package each treat to ensure its freshness and
+								flawless condition during transit. No matter where you are,
+								indulge in my delightful desserts hassle-free. I offer convenient
+								postal delivery options, allowing you to receive exquisite
+								desserts right at your doorstep.
+							</div>
+							<h5 class="popup__title popup__title_smaller">
+								Advance Orders for Local Pickup
+							</h5>
+							<div class="popup__text">
+								For my local customers, I offer the convenience of placing advance
+								orders for pickup. Simply browse through my tempting variety,
+								select your favorite treats, and choose a convenient pickup time.
+								I will gladly prepare your delectable treats for you to enjoy
+								fresh desserts at your convenience. Additionally, I can also offer
+								delivery via taxi or Uber to make the process even more convenient
+								for you.
+							</div>
+							<h5 class="popup__title popup__title_smaller">Events</h5>
+							<div class="popup__text">
+								Make your special occasions truly unforgettable with my culinary
+								expertise! Whether it's a corporate gathering, birthday
+								celebration, wedding, or any other occasion, I will take care of
+								the cooking so you and your guests can savor every moment of your
+								special day. I use only fresh ingredients and my unique skills to
+								create impeccable taste. Furthermore, if you wish, I can also
+								provide delivery to your event using taxi or Uber to fulfill all
+								your needs.
+							</div>
+							<div class="popup__text">
+								From homemade cakes and pastries to delightful cookies, I take
+								pride in creating treats that fill hearts with joy. Place your
+								order today and experience the magic of my exquisite desserts.
+								Whether it's for personal pleasure or a special event, I am here
+								to make it extraordinary with my delightful creations.
+								<br /><br />
+								Treat yourself to exquisite desserts, meticulously packaged with
+								care, and experience the enchantment of my culinary delights. I
+								look forward to serving you and delighting your taste buds with a
+								dance of happiness!
+							</div>
 						</div>
-						<h5 class="popup__title popup__title_smaller">
-							Advance Orders for Local Pickup
-						</h5>
-						<div class="popup__text">
-							For my local customers, I offer the convenience of placing advance
-							orders for pickup. Simply browse through my tempting variety,
-							select your favorite treats, and choose a convenient pickup time.
-							I will gladly prepare your delectable treats for you to enjoy
-							fresh desserts at your convenience. Additionally, I can also offer
-							delivery via taxi or Uber to make the process even more convenient
-							for you.
-						</div>
-						<h5 class="popup__title popup__title_smaller">Events</h5>
-						<div class="popup__text">
-							Make your special occasions truly unforgettable with my culinary
-							expertise! Whether it's a corporate gathering, birthday
-							celebration, wedding, or any other occasion, I will take care of
-							the cooking so you and your guests can savor every moment of your
-							special day. I use only fresh ingredients and my unique skills to
-							create impeccable taste. Furthermore, if you wish, I can also
-							provide delivery to your event using taxi or Uber to fulfill all
-							your needs.
-						</div>
-						<div class="popup__text">
-							From homemade cakes and pastries to delightful cookies, I take
-							pride in creating treats that fill hearts with joy. Place your
-							order today and experience the magic of my exquisite desserts.
-							Whether it's for personal pleasure or a special event, I am here
-							to make it extraordinary with my delightful creations.
-							<br /><br />
-							Treat yourself to exquisite desserts, meticulously packaged with
-							care, and experience the enchantment of my culinary delights. I
-							look forward to serving you and delighting your taste buds with a
-							dance of happiness!
-						</div>
-					</div>
+					</form>
 					<div class="popup__bg">
 						<img src="/img/delivery/background-candy.jpg" alt="" />
 					</div>
