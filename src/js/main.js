@@ -11,6 +11,7 @@ window.addEventListener('DOMContentLoaded', () => {
     mainSection();
     nav();
     contactUs();
-    contact();
+    contact('input[name="phone"]', 'input[name="e-mail"]',)
+    
 
 });

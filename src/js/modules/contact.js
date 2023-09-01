@@ -1,7 +1,8 @@
-const contact = (url) => {
+const contact = (checkPhone, checkEmail, url) => {
     const forms = document.querySelectorAll('form'),
           inputs = document.querySelectorAll('.popup__input'),
           phoneInputs = document.querySelectorAll('input[name="phone"]');
+
 
     const message = {
         trying: 'Sending...',
@@ -22,6 +23,8 @@ const contact = (url) => {
             method: 'POST',
             body: data
         });
+
+        return await result.text();
     };
 
     phoneInputs.forEach(input => {
@@ -43,8 +46,12 @@ const contact = (url) => {
             const formData = new FormData(form);
 
             if (!formData.get('e-mail') && !formData.get('phone')) {
+                form.querySelector(checkEmail).style.border = '1px solid red'
+                form.querySelector(checkPhone).style.border = '1px solid red'
                 messageStatus.textContent = message.empty;
                 setTimeout(() => {
+                    form.querySelector(checkEmail).style.border = 'none'
+                    form.querySelector(checkPhone).style.border = 'none'
                     messageStatus.remove();
                 }, 3000);
             } else {
