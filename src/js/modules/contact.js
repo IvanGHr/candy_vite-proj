@@ -48,6 +48,7 @@ const contact = (checkPhone, checkEmail, url) => {
             if (!formData.get('e-mail') && !formData.get('phone')) {
                 form.querySelector(checkEmail).style.border = '1px solid red'
                 form.querySelector(checkPhone).style.border = '1px solid red'
+                messageStatus.style.color = 'red';
                 messageStatus.textContent = message.empty;
                 setTimeout(() => {
                     form.querySelector(checkEmail).style.border = 'none'
@@ -60,7 +61,10 @@ const contact = (checkPhone, checkEmail, url) => {
                         console.log(result);
                         messageStatus.textContent = message.done;
                     })
-                    .catch(() => messageStatus.textContent = message.fail)
+                    .catch(() => {
+                        messageStatus.textContent = message.fail;
+                        messageStatus.style.color = 'red';
+                    })
                     .finally(() => {
                         clearInputs();
                         setTimeout(() => {
