@@ -5,16 +5,20 @@ import nav from './modules/nav-menu';
 import contactUs from './modules/modals';
 import contact from './modules/contact';
 import timer from './modules/timer';
+import slider from './modules/slider';
 import mask from './modules/mask';
+
 
 window.addEventListener('DOMContentLoaded', () => {
     'use strict';
 
-    let deadLine = '2024-01-01';
+    let deadLine = '2023-09-05';
 
     mainSection();
     nav();
     contactUs();
     contact('input[name="phone"]', 'input[name="e-mail"]');
     timer('.timer-box__timers', deadLine);
+    slider('.img-wrapper__img', 7000);
+    mask('input[name="phone"]');
 });

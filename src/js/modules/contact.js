@@ -1,7 +1,8 @@
 const contact = (checkPhone, checkEmail, url) => {
     const forms = document.querySelectorAll('form'),
           inputs = document.querySelectorAll('.popup__input'),
-          phoneInputs = document.querySelectorAll('input[name="phone"]');
+          phoneInputs = document.querySelectorAll('input[name="phone"]'),
+          modals = document.querySelectorAll('.popup');
 
 
     const message = {
@@ -46,20 +47,35 @@ const contact = (checkPhone, checkEmail, url) => {
             const formData = new FormData(form);
 
             if (!formData.get('e-mail') && !formData.get('phone')) {
-                form.querySelector(checkEmail).style.border = '1px solid red'
-                form.querySelector(checkPhone).style.border = '1px solid red'
+                const email = form.querySelector(checkEmail),
+                      phone = form.querySelector(checkPhone);
+                      
+                email.classList.add('red');
+                phone.classList.add('red');
+                email.classList.remove('default');
+                phone.classList.remove('default');
                 messageStatus.style.color = 'red';
                 messageStatus.textContent = message.empty;
                 setTimeout(() => {
-                    form.querySelector(checkEmail).style.border = 'none'
-                    form.querySelector(checkPhone).style.border = 'none'
+                    email.classList.add('default');
+                    phone.classList.add('default');
+                    email.classList.remove('red');
+                    phone.classList.remove('red');
                     messageStatus.remove();
-                }, 3000);
+                }, 2000);
             } else {
                 postData(url, formData)
                     .then(result => {
                         console.log(result);
                         messageStatus.textContent = message.done;
+                        setTimeout(() => {
+                            modals.forEach(modal => {
+                                modal.classList.add('cancel-animate');
+                                modal.classList.remove('animate-modal');
+                                document.body.style.overflow = '';
+                                document.body.style.marginRight = `${0}px`;
+                            });
+                        }, 3000);
                     })
                     .catch(() => {
                         messageStatus.textContent = message.fail;

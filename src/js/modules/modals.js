@@ -5,7 +5,19 @@ const contactUs = () => {
 	function bindModal(triggerSelector, modalSelector, closeSelector) {
 		const trigger = document.querySelectorAll(triggerSelector),
 			  modal = document.querySelector(modalSelector),
-			  closeModal = document.querySelectorAll(closeSelector);
+			  closeModal = document.querySelectorAll(closeSelector),
+			  inputFields = modal.querySelectorAll('input'),
+			  textArea = modal.querySelectorAll('textarea');
+
+		function clearInputFields() {
+			inputFields.forEach(input => {
+				input.value = '';
+			});
+
+			textArea.forEach(input => {
+				input.value = '';
+			});
+		};
 
 		trigger.forEach(item => {
 			item.addEventListener('click', (e) => {
@@ -30,6 +42,8 @@ const contactUs = () => {
 				document.body.style.marginRight = `${0}px`;
 
 				isModal = false;
+
+				clearInputFields();
 			})
 		})
 
@@ -41,6 +55,8 @@ const contactUs = () => {
                 document.body.style.marginRight = `${0}px`;
 
 				isModal = false;
+
+				clearInputFields();
 			}
 		});
 	};
