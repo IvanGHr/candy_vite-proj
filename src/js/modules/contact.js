@@ -61,8 +61,8 @@ const contact = (checkPhone, checkEmail, url) => {
                     phone.classList.add('default');
                     email.classList.remove('red');
                     phone.classList.remove('red');
-                    messageStatus.remove();
-                }, 2000);
+                    messageStatus.classList.add('status-remove');
+                }, 3000);
             } else {
                 postData(url, formData)
                     .then(result => {
@@ -84,7 +84,7 @@ const contact = (checkPhone, checkEmail, url) => {
                     .finally(() => {
                         clearInputs();
                         setTimeout(() => {
-                            messageStatus.remove();
+                            messageStatus.classList.add('status-remove');
                         }, 3000);
                     });
                 };

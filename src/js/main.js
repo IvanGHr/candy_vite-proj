@@ -12,7 +12,7 @@ import mask from './modules/mask';
 window.addEventListener('DOMContentLoaded', () => {
     'use strict';
 
-    let deadLine = '2023-09-05';
+    let deadLine = '2024-01-01';
 
     mainSection();
     nav();
@@ -20,5 +20,5 @@ window.addEventListener('DOMContentLoaded', () => {
     contact('input[name="phone"]', 'input[name="e-mail"]');
     timer('.timer-box__timers', deadLine);
     slider('.img-wrapper__img', 7000);
-    mask('input[name="phone"]');
+    mask('input[data-tel-input]');
 });

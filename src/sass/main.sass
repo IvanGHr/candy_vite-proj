@@ -603,15 +603,27 @@ body
     font-weight: 500
     border-radius: 25px
     color: $color-black
+    opacity: 1
+    transition: opacity 0.5s ease-in-out
+
+.status-remove
+    transition: opacity 0.5s ease-in-out
+    opacity: 0
 
 .red
+    background-color: red
+    color: white
     margin: 0 -1px 14px -1px
     border: 1px solid red
     background: $color-red
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out
     &::placeholder
+        transition: opacity 1s ease-in-out
         color: red !important
 
 .default
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out
+    background-color: white
     border: none
     background: white
     &::placeholder

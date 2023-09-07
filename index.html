@@ -59,7 +59,7 @@
 						<div class="input-box__descr">
 							Write your phone number and we will contact you
 						</div>
-						<input class="input-box__input" type="text" name="phone"/>
+						<input class="input-box__input" type="tel" name="phone" maxlength="18" placeholder="phone number" data-tel-input/>
 						<div class="input-box__icons icons">
 							<a href="#">
 								<img class="icons__icon" src="/icons/instagram.png" alt="" />
@@ -360,7 +360,7 @@
 							<div class="input-box__descr">
 								Write your phone number and we will contact you
 							</div>
-							<input class="input-box__input input-box__input_small" type="text" name="phone"/>
+							<input class="input-box__input input-box__input_small" type="tel" name="phone" maxlength="18" placeholder="phone number" data-tel-input/>
 						</div>
 					</div>
 				</div>
@@ -377,7 +377,7 @@
 					<form class="popup__form" action="#">
 						<h4 class="popup__title">Fill out the form and I contact you</h4>
 						<input class="popup__input popup__email" placeholder="email" name="e-mail" type="text">
-						<input class="popup__input popup__phone-number" placeholder="Phone number" name="phone" type="text">
+						<input class="popup__input popup__phone-number" maxlength="18" placeholder="phone number" name="phone" type="tel" data-tel-input>
 						<div class="popup__descr">You can write a comment</div>
 						<textarea rows="2" cols="25" style="resize: none" name="comment" class="popup__input popup__comment" type="text" placeholder="comment..."></textarea>
 						<button id="popup__send" class="button popup__send" name="submit" type="submit">Send</button>

@@ -1,48 +1,75 @@
 const mask = (selector) => {
-    let setCursorPos = (position, elem) => {
-        elem.focus();
+    const phoneInputs = document.querySelectorAll(selector);
 
-        if (elem.setSelectionRange) {
-            elem.setSelectionRange(position, position)
-        } else if (elem.createTextRange) {
-            let range = elem.createTextRange();
-
-            range.collapse(true);
-            range.moveEnd('character', position)
-            range.moveStart('character', position)
-            range.select();
-        }
+    let onlyNumbersInput = function(event) {
+        return event.value.replace(/\D/g, '');
     };
 
-    function addMask(event) {
-        let matrix = '+45-__-__-__-__',
-            i = 0,
-            def = matrix.replace(/\D/g, ''),
-            value = this.value.replace(/\D/g, '');
-
-        if (def.length >= value.length) {
-            value = def;
-        }
-
-        this.value = matrix.replace(/./g, function(a) {
-            return /[_\d]/.test(a) && i < value.length ? value.charAt(i++) : i >= value.length ? '' : a;
-        });
-
-        if (event.type === 'blur') {
-            if (this.value.length == 2) {
-                this.value = '';
-            }
-        } else {
-            setCursorPos(this.value.length, this);
+    const onPhoneKeyDown = function(e) {
+        const input = e.target
+        if (e.keyCode == 8 && onlyNumbersInput(input).length == 2) {
+            input.value = '';
         }
     }
 
-    let inputs = document.querySelectorAll(selector);
+    const onPhonePaste = function (e) {
+        const input = e.target,
+              inputNumbersValue = onlyNumbersInput(input);
+        let pasted = e.clipboardData || window.clipboardData;
+        
+        if (pasted) {
+            var pastedText = pasted.getData('Text');
+            if (/\D/g.test(pastedText)) {
+                input.value = inputNumbersValue;
+                return;
+            }
+        }
+    }
 
-    inputs.forEach(input => {
-        input.addEventListener('input', addMask);
-        input.addEventListener('focus', addMask);
-        input.addEventListener('blur', addMask);
+    const onPhoneInput = function(e) {
+        let input = e.target,
+            inputValue = onlyNumbersInput(input),
+            selectionStart = input.selectionStart,
+            formattedInputValue = "";
+            
+        if (!inputValue) {
+            return input.value = "";
+        }
+
+        if (input.value.length != selectionStart) {
+            if (e.data && /\D/g.test(e.data)) {
+                input.value = inputValue;
+            }
+            return;
+        }
+
+        if (["4", "5"].indexOf(inputValue[0]) > -1) {
+            let firstSymbol = "+45";
+            formattedInputValue = firstSymbol + " ";
+            if (inputValue.length > 2) {
+                formattedInputValue += "- " + inputValue.substring(2, 4);
+            }
+            if (inputValue.length > 4) {
+                formattedInputValue += "-" + inputValue.substring(4, 6);
+            }
+            if (inputValue.length > 6) {
+                formattedInputValue += "-" + inputValue.substring(6, 8);
+            }
+            if (inputValue.length > 8) {
+                formattedInputValue += "-" + inputValue.substring(8, 10);
+            }
+            
+        } else {
+            formattedInputValue = inputValue.substring(0, 16);
+        }
+
+        input.value = formattedInputValue;
+    };
+
+    phoneInputs.forEach(input => {
+        input.addEventListener('keydown', onPhoneKeyDown);
+        input.addEventListener('input', onPhoneInput, false);
+        input.addEventListener('paste', onPhonePaste, false);
     });
 };
 
